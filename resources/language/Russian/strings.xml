@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<strings>
+  <!-- category settings -->
+  <string id="32050">Основные</string>
+  <string id="32051">IP-адрес API</string>
+  <string id="32052">Порт API</string>
+  <string id="32053">Ключ API</string>
+  <string id="32054">Уведомления</string>
+  
+  <string id="32060">Профили</string>
+  <string id="32161">Включать по-умолчанию</string> 
+  <string id="32061">Профиль по-умолчанию</string> 
+  <string id="32162">Включать для видео</string> 
+  <string id="32062">Профиль для видео</string> 
+  <string id="32163">Включать для аудио</string> 
+  <string id="32063">Профиль для аудио</string> 
+  
+  <!-- menu -->
+  <string id="32070">Выберите профиль</string>
+  <string id="32071">Выключить</string>
+  
+  <!-- Notification -->
+  <string id="32080">Подключение к API...</string>
+  <string id="32081">Lightpack выключен</string>
+  <string id="32082">Установлен профиль %s</string>
+  
+</strings>
