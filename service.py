@@ -25,7 +25,10 @@ def notification(text):
 
 def setProfile(enable, profile):
     '''Set Lightpack profile'''
-    if enable == 'true':
+    if profile == __language__(32071):
+        notification(__language__(32081))
+        lpack.turnOff()
+    elif enable == 'true':
         notification(__language__(32082)%profile)
         lpack.turnOn()
         lpack.setProfile(profile)

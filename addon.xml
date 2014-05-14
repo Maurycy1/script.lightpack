@@ -3,10 +3,10 @@
        version="1.0.6" date="05.13.2014"
        provider-name="Zanix">
   <requires>
-    <import addon="xbmc.python" version="1.0"/>
+    <import addon="xbmc.python" version="1.0" />
   </requires>
   <extension point="xbmc.python.script" library="default.py" />
-  <extension point="xbmc.service" library="service.py" />
+  <extension point="xbmc.service" library="service.py" start="startup" />
 
   <extension point="xbmc.addon.metadata">
     <summary lang="en">Lightpack manager</summary>
