@@ -1,28 +1,27 @@
 ﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <strings>
-  <!-- category settings -->
+  <!-- Category Settings -->
   <string id="32050">General</string>
   <string id="32051">API host</string>
   <string id="32052">API port</string>
   <string id="32053">API key</string>
   <string id="32054">Notification</string>
-  
+  <string id="32055">Last profile</string>
+
   <string id="32060">Profiles</string>
-  <string id="32161">Enable default profile</string> 
-  <string id="32061">Default profile</string> 
-  <string id="32162">Enable video profile</string> 
-  <string id="32062">Video profile</string> 
-  <string id="32163">Enable audio profile</string> 
-  <string id="32063">Audio profile</string> 
-  
-  <!-- menu -->
+  <string id="32161">Enable default profile</string>
+  <string id="32061">Default profile</string>
+  <string id="32162">Enable video profile</string>
+  <string id="32062">Video profile</string>
+  <string id="32163">Enable audio profile</string>
+  <string id="32063">Audio profile</string>
+
+  <!-- Menu -->
   <string id="32070">Select profile</string>
   <string id="32071">Off</string>
-  
+
   <!-- Notification -->
   <string id="32080">Connection API...</string>
   <string id="32081">Set status OFF</string>
   <string id="32082">Set profile %s</string>
-  
-  
 </strings>

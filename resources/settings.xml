@@ -5,17 +5,19 @@
     <setting id="host" type="text" label="32051"  default="127.0.0.1" />
     <setting id="port" type="number" label="32052" default="3636" />
     <setting id="apikey" type="text" label="32053" default="" />
-    <setting id="last_profile" type="text" label="last profile" default="" visible="true"/>
-	<setting id="notification" type="bool" label="32054" default="true" />
+    <setting id="notification" type="bool" label="32054" default="true" />
+    <setting type="sep" />
+    <setting id="last_profile" type="text" label="32055" default="Lightpack" />
   </category>
 
   <category label="32060">
     <setting id="default_enable" type="bool" label="32161"  default="true" />
-    <setting id="default_profile" type="text" label="32061" default="Lightpack" subsetting="true" visible="eq(-1,true)" />
-	<setting id="video_enable" type="bool" label="32162" default="true" />
-    <setting id="video_profile" type="text" label="32062" default="Lightpack" subsetting="true" visible="eq(-1,true)"  />
-	<setting id="audio_enable" type="bool" label="32163" default="true" />
-    <setting id="audio_profile" type="text" label="32063" default="Lightpack" subsetting="true" visible="eq(-1,true)"   />
+    <setting id="default_profile" type="text" label="32061" default="Lightpack" subsetting="true" enable="eq(-1,true)" />
+    <setting type="sep" />
+    <setting id="video_enable" type="bool" label="32162" default="true" />
+    <setting id="video_profile" type="text" label="32062" default="Lightpack" subsetting="true" enable="eq(-1,true)" />
+    <setting type="sep" />
+    <setting id="audio_enable" type="bool" label="32163" default="true" />
+    <setting id="audio_profile" type="text" label="32063" default="Lightpack" subsetting="true" enable="eq(-1,true)" />
   </category>
-
 </settings>
