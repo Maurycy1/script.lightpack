@@ -1,4 +1,7 @@
-﻿1.0.6
+﻿- added rotate for keybinds
+- cleanup up code
+
+1.0.6
  - del empty profile
 
 1.0.5
