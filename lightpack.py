@@ -84,6 +84,8 @@ class lightpack:
 	def setProfile(self, p):
 		#cmd = 'setprofile:{0}\n'.format(p)
 		cmd = 'setprofile:%s\n' % p
+		if (p == 'off'):
+			cmd = 'setstatus:off\n'
 		self.connection.send(cmd)		
 		self.__readResult()
 		

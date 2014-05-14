@@ -26,9 +26,10 @@ def setProfile(enable, profile):
 		notification(__language__(32082)%profile)
 		lpack.turnOn()
 		lpack.setProfile(profile)
-	else:
-		notification(__language__(32081))
-		lpack.turnOff()
+# if no default leave set as is
+#	else:
+#		notification(__language__(32081))
+#		lpack.turnOff()
 
 print "service Lightpack"
 notification(__language__(32080))
