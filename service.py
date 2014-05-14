@@ -15,6 +15,7 @@ lpport = int(__settings__.getSetting("port"))
 lpapikey = __settings__.getSetting("apikey")
 
 def notification(text):
+    '''Send notification to XBMC'''
     import os.path
     text = text.encode("utf-8")
     icon = __settings__.getAddonInfo("icon")
@@ -23,7 +24,8 @@ def notification(text):
         xbmc.executebuiltin('Notification(Lightpack,' + text + ',3000,' + smallicon + ')')
 
 def setProfile(enable, profile):
-    if (enable == 'true'):
+    '''Set Lightpack profile'''
+    if enable == 'true':
         notification(__language__(32082)%profile)
         lpack.turnOn()
         lpack.setProfile(profile)
@@ -39,7 +41,7 @@ lpack = lightpack.lightpack(lphost, lpport, lpapikey, range(1, 11))
 lpack.connect()
 
 oldstatus = -1
-while (not xbmc.abortRequested):
+while not xbmc.abortRequested:
     newstatus = 0
     player = xbmc.Player()
     audioIsPlaying = player.isPlayingAudio()
@@ -48,15 +50,15 @@ while (not xbmc.abortRequested):
         newstatus = 1
     if audioIsPlaying:
         newstatus = 2
-    if (oldstatus!=newstatus):
+    if oldstatus != newstatus:
         oldstatus = newstatus
         lpack.lock()
-        if (newstatus == 0):
-            setProfile(__settings__.getSetting("default_enable"),__settings__.getSetting("default_profile"))
-        if (newstatus == 1):
-            setProfile(__settings__.getSetting("video_enable"),__settings__.getSetting("video_profile"))
-        if (newstatus == 2):
-            setProfile(__settings__.getSetting("audio_enable"),__settings__.getSetting("audio_profile"))
+        if newstatus == 0:
+            setProfile(__settings__.getSetting("default_enable"), __settings__.getSetting("default_profile"))
+        if newstatus == 1:
+            setProfile(__settings__.getSetting("video_enable"), __settings__.getSetting("video_profile"))
+        if newstatus == 2:
+            setProfile(__settings__.getSetting("audio_enable"), __settings__.getSetting("audio_profile"))
         lpack.unlock()
     time.sleep(1)
 
@@ -65,5 +67,5 @@ notification(__language__(32081))
 print "set status off for Lightpack"
 lpack.lock()
 lpack.turnOff()
-lpack.unlock
+lpack.unlock()
 lpack.disconnect()
