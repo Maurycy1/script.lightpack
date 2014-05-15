@@ -1,8 +1,7 @@
 ﻿# pylint: disable=C0103,C0301
 
 # Modules General
-import os, time, lightpack
-from sys import argv
+import time, lightpack
 
 # Modules XBMC
 import xbmc, xbmcgui, xbmcaddon
@@ -16,12 +15,11 @@ lpapikey = __settings__.getSetting("apikey")
 
 def notification(text):
     '''Send notification to XBMC'''
-    import os.path
     text = text.encode("utf-8")
     icon = __settings__.getAddonInfo("icon")
     smallicon = icon.encode("utf-8")
     if __settings__.getSetting("notification") == 'true':
-        xbmc.executebuiltin('Notification(Lightpack,' + text + ',3000,' + smallicon + ')')
+        xbmc.executebuiltin('Notification(Lightpack,"' + text + '",3000,"' + smallicon + '")')
 
 def setProfile(enable, profile):
     '''Set Lightpack profile'''
@@ -41,29 +39,31 @@ notification(__language__(32080))
 print "service Lightpack connect"
 
 lpack = lightpack.lightpack(lphost, lpport, lpapikey, range(1, 11))
-lpack.connect()
 
-oldstatus = -1
-while not xbmc.abortRequested:
-    newstatus = 0
-    player = xbmc.Player()
-    audioIsPlaying = player.isPlayingAudio()
-    videoIsPlaying = player.isPlayingVideo()
-    if videoIsPlaying:
-        newstatus = 1
-    if audioIsPlaying:
-        newstatus = 2
-    if oldstatus != newstatus:
-        oldstatus = newstatus
-        lpack.lock()
-        if newstatus == 0:
-            setProfile(__settings__.getSetting("default_enable"), __settings__.getSetting("default_profile"))
-        if newstatus == 1:
-            setProfile(__settings__.getSetting("video_enable"), __settings__.getSetting("video_profile"))
-        if newstatus == 2:
-            setProfile(__settings__.getSetting("audio_enable"), __settings__.getSetting("audio_profile"))
-        lpack.unlock()
-    time.sleep(1)
+if lpack.connect() == 0 and lpapikey:
+    oldstatus = -1
+    while not xbmc.abortRequested:
+        newstatus = 0
+        player = xbmc.Player()
+        audioIsPlaying = player.isPlayingAudio()
+        videoIsPlaying = player.isPlayingVideo()
+        if videoIsPlaying:
+            newstatus = 1
+        if audioIsPlaying:
+            newstatus = 2
+        if oldstatus != newstatus:
+            oldstatus = newstatus
+            lpack.lock()
+            if newstatus == 0:
+                setProfile(__settings__.getSetting("default_enable"), __settings__.getSetting("default_profile"))
+            if newstatus == 1:
+                setProfile(__settings__.getSetting("video_enable"), __settings__.getSetting("video_profile"))
+            if newstatus == 2:
+                setProfile(__settings__.getSetting("audio_enable"), __settings__.getSetting("audio_profile"))
+            lpack.unlock()
+        time.sleep(1)
+else:
+    notification(__language__(32083))
 
 # set off
 notification(__language__(32081))

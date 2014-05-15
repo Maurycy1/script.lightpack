@@ -1,6 +1,6 @@
 # pylint: disable=C0103,C0301
 
-import socket, time, imaplib, re, sys
+import socket
 
 class lightpack(object):
     '''Python API for the lightpack software'''
